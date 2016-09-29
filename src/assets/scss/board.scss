@@ -1,0 +1,95 @@
+$boardWidth: 500px;
+$boardHeight: 500px;
+
+$pointWidth: 50px;
+$pointHeight: 50px;
+
+.board {
+  position: relative;
+  width: $boardWidth;
+  height: $boardHeight;
+  background: #d6eaa3;
+
+  .dice-place {
+    position: absolute;
+    top: 150px;
+    left: 80px;
+    width: 400px;
+    height: 400px;
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 3rem;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.point {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #d6eaa3;
+  border: 1px solid #000;
+  font-size: 2em;
+  line-height: 100px;
+  text-align: center;
+}
+
+@mixin rotate($deg){
+  -webkit-transform: rotate(#{$deg}deg);
+  -moz-transform: rotate(#{$deg}deg);
+  -ms-transform: rotate(#{$deg}deg);
+  -o-transform: rotate(#{$deg}deg);
+  transform: rotate(#{$deg}deg);
+}
+
+@for $x from 0 through 9 {
+  @for $y from 0 through 9 {
+    .p#{$x}-#{$y} {
+      @if $x == 0 {
+        left:0;
+        bottom: $y*$pointWidth;
+      }
+      @if $y == 0 {
+        bottom: 0;
+        left: $x*$pointWidth;
+      }
+      @if $x ==0 and $y == 0 {
+        background:url('../img/board/jail.gif') center 0 no-repeat;
+        background-size: 50px;
+        @include rotate(-135);
+      }
+      @if $x==0 and $y == 9 {
+        background:url('../img/board/freepark.gif') center 0 no-repeat;
+        background-size: 50px;
+        @include rotate(-45);
+      }
+      @if $x == 9 {
+        right: 0;
+        bottom: $y*$pointWidth;
+      }
+      @if $x ==9 and $y ==0 {
+        background:url('../img/board/go.gif')center 0 no-repeat;
+        background-size: 50px;
+      }
+      @if $y == 9 {
+        top: 0;
+        left: $x*$pointWidth;
+      }
+      @if $x == 9 and $y ==9{
+        background:url('../img/board/jailman.gif')0 0 no-repeat;
+        background-size: 50px;
+        @include rotate(45);
+      }
+    }
+  }
+}
+
