@@ -65,12 +65,12 @@ $pointHeight: 50px;
       @if $x ==0 and $y == 0 {
         background:url('../img/board/jail.gif') center 0 no-repeat;
         background-size: 50px;
-        @include rotate(-135);
+        //@include rotate(-135);
       }
       @if $x==0 and $y == 9 {
         background:url('../img/board/freepark.gif') center 0 no-repeat;
         background-size: 50px;
-        @include rotate(-45);
+        //@include rotate(-45);
       }
       @if $x == 9 {
         right: 0;
@@ -87,7 +87,7 @@ $pointHeight: 50px;
       @if $x == 9 and $y ==9{
         background:url('../img/board/jailman.gif')0 0 no-repeat;
         background-size: 50px;
-        @include rotate(45);
+        //@include rotate(45);
       }
     }
   }

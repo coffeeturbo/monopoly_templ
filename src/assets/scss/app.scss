@@ -49,4 +49,10 @@
 //@include motion-ui-transitions;
 //@include motion-ui-animations;
 
+body {
+  min-height: 100%;
+  background: #0a3460;
+}
+
 @import 'board.scss';
+@import 'control_bar.scss';
